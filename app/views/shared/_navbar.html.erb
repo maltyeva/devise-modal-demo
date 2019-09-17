@@ -25,16 +25,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(resource_name, :url => session_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :email %>
-          <%= f.input :password %>
-          <%= f.input :remember_me, as: :boolean %>
-          <%= link_to "Forgot your password?", new_password_path(:user) %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit 'Sign in', class: "btn btn-primary" %>
-        <% end %>
+        <%= render 'shared/login_form' %>
       </div>
     </div>
   </div>
