@@ -10,8 +10,32 @@
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
       <% else %>
-        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Login", new_user_session_path, data: {toggle: "modal", target: ".bd-example-modal-lg"} %>
       <% end %>
     </span>
   </div>
 </nav>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login to Continue</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :email %>
+          <%= f.input :password %>
+          <%= f.input :remember_me, as: :boolean %>
+          <%= link_to "Forgot your password?", new_password_path(:user) %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Sign in', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
