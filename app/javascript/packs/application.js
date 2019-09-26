@@ -16,4 +16,9 @@
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
+
 import 'bootstrap'
+

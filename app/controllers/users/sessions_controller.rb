@@ -2,6 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+    respond_to :html, :js
+
 
   # GET /resource/sign_in
   # def new
@@ -9,11 +11,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    respond_to do |format|
-      format.js { super }
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # DELETE /resource/sign_out
   # def destroy
